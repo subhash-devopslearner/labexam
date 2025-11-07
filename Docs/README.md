@@ -19,3 +19,19 @@
 3. `docker compose up --build`  
 4. `Open http://localhost:8000`  
 5. `docker compose down`  
+
+## Using Docker Compose with Django and Postgres DB
+
+***Check for DB part in docker-compose.yml file***  
+***Added package for postgres db, check requirements.txt***  
+
+1. `git clone https://github.com/subhash-devopslearner/labexam.git`  
+2. `cd labexam`  
+3. `docker compose build`  
+4. `docker compose up` 
+5. `Open http://localhost:8000`   
+6. `docker compose exec web python manage.py migrate`  
+7. `docker compose exec web python manage.py createsupersuper`  
+8. `Open http://localhost:8000/admin`  
+9. `docker compose down`  
+10. `docker compose down -v` - (optional, to delete docker mounted volume)    
