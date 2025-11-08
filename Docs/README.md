@@ -39,7 +39,7 @@
 ## Using Docker Compose with Django and Postgres DB with .env
 
 ***Check for environment part in docker-compose.yml file***  
-***In DB part, DB variables are read from .env and set using environment keyword as bash variables***
+***In DB part, DB variables are read from .env and set using environment keyword as bash variables***  
 ***Check for settings.py in labexam for django settings reading using .env***  
 ***Must add .env to .gitignore and .dockerignore files***
 
@@ -60,4 +60,16 @@ Get secret key for Django using above command and save in .env file
 
 Always put secret key inside '' (single quotes)
 ```
+
+## Using Docker Compose with Django, Postgres DB and Gunicorn
+
+***Add gunicorn in requirements.txt and install it using pip***  
+***Replace CMD line with Gunicorn in Dockerfile***  
+***Remove command line from docker-compose.yml file***  
+
+1. `gunicorn==23.0.0` add this in requirements.txt  
+2. `pip install -r requirements.txt`  install gunicorn  
+3. `CMD ["gunicorn", "labexam.wsgi:application", "--bind", "0.0.0:8000"]`  replace this line  
+4. `docker compose up` 
+5. `Open http://localhost:8000`  
 
