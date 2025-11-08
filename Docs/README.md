@@ -35,3 +35,29 @@
 8. `Open http://localhost:8000/admin`  
 9. `docker compose down`  
 10. `docker compose down -v` - (optional, to delete docker mounted volume)    
+
+## Using Docker Compose with Django and Postgres DB with .env
+
+***Check for environment part in docker-compose.yml file***  
+***In DB part, DB variables are read from .env and set using environment keyword as bash variables***
+***Check for settings.py in labexam for django settings reading using .env***  
+***Must add .env to .gitignore and .dockerignore files***
+
+1. `git clone https://github.com/subhash-devopslearner/labexam.git`  
+2. `cd labexam`  
+3. `docker compose build`  
+4. `docker compose up` 
+5. `Open http://localhost:8000`   
+6. `docker compose exec web python manage.py shell`    
+7. `import os`  
+8. `print(os.environ.get('DB_HOST'))`    
+9. `docker compose down`  
+
+```
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+Get secret key for Django using above command and save in .env file
+
+Always put secret key inside '' (single quotes)
+```
+
