@@ -73,3 +73,17 @@ Always put secret key inside '' (single quotes)
 4. `docker compose up` 
 5. `Open http://localhost:8000`  
 
+## Using Docker Compose with Django, Postgres DB and Gunicorn with NGINX
+
+***Add NGINX default.conf file in nginx folder***  
+***Check NGINX part in docker-compose.yml file***  
+***Check that environment variables for Postgres DB are directly read from .env file***  
+***Both Django and Postgres DB environment variables values are same, just naming are different***   
+***Django service is available now on port 80***  
+
+1. `docker compose build`  
+2. `docker compose up`  
+3. `Open http://localhost`  
+
+
+
